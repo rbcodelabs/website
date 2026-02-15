@@ -51,7 +51,7 @@ export function FooterSection() {
           {"\u00A9"} {new Date().getFullYear()} RB Code Labs. All rights reserved.
         </span>
         <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
-          Austin, TX
+          Sawyer, MI
         </span>
       </div>
     </footer>

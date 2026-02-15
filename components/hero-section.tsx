@@ -88,7 +88,7 @@ export function HeroSection() {
       {/* Floating info tag */}
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          Est. 2025 / Austin, TX
+          Est. 2025 / Sawyer, MI
         </div>
       </div>
     </section>

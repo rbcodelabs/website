@@ -4,11 +4,10 @@ import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { id: "hero", label: "Index" },
-  { id: "signals", label: "Signals" },
-  { id: "work", label: "Experiments" },
-  { id: "principles", label: "Principles" },
-  { id: "colophon", label: "Colophon" },
+  { id: "hero", label: "Home" },
+  { id: "products", label: "Products" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
 ]
 
 export function SideNav() {

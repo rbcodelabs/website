@@ -9,29 +9,34 @@ gsap.registerPlugin(ScrollTrigger)
 
 const signals = [
   {
-    date: "2025.06.10",
-    title: "Signal Field",
-    note: "New interface paradigm for ambient computing environments.",
+    date: "2026.05.09",
+    title: "Agentic PM Playbook",
+    note: "Published as an open-source Claude Code plugin. Full OST operating system, 18 agent skills across 4 capability layers, and a prompt library for the most common PM agent tasks.",
+    url: "https://github.com/richardbowman/agent-pm-playbook",
   },
   {
-    date: "2025.05.28",
-    title: "Silent Agent",
-    note: "Orchestration layer for autonomous design systems.",
+    date: "2026.05.08",
+    title: "Agent Capability Framework",
+    note: "Companion doc to the Playbook: a maturity model for building PM agents that can actually run the system. Synthesis → OST Integrity → Experiment Reasoning → Judgment.",
+    url: "https://github.com/richardbowman/agent-pm-playbook",
   },
   {
-    date: "2025.05.15",
-    title: "Noir Grid",
-    note: "Typographic system for editorial interfaces.",
+    date: "2026.05.07",
+    title: "Dream Skill",
+    note: "A Claude Code skill that mines conversation history for friction and mistakes, then writes memory rules to fix them. Self-improving agent memory, shipped as an open-source plugin.",
+    url: "https://github.com/richardbowman/claude-code-dream",
   },
   {
-    date: "2025.04.30",
-    title: "Project Lattice",
-    note: "Structural framework for adaptive layouts.",
+    date: "2026.05.01",
+    title: "HipTrip Pre-Launch",
+    note: "Waitlist live, creator seeding underway, first curated trips published. Built end-to-end using the agentic PM approach — every feature traces back to a validated OST opportunity.",
+    url: "https://yourhiptrip.com",
   },
   {
-    date: "2025.04.12",
-    title: "Echo Chamber",
-    note: "Audio-visual synthesis in browser environments.",
+    date: "2026.04.15",
+    title: "Golden Wealth v2",
+    note: "RBAC overhaul, AI document assistant, Plaid integration in progress. Full OST-driven roadmap — 56 issues in Linear, all opportunity-backed.",
+    url: "https://live-golden.com",
   },
 ]
 
@@ -160,15 +165,22 @@ function SignalCard({
   signal,
   index,
 }: {
-  signal: { date: string; title: string; note: string }
+  signal: { date: string; title: string; note: string; url?: string }
   index: number
 }) {
+  const Wrapper = signal.url ? "a" : "article"
+  const wrapperProps = signal.url
+    ? { href: signal.url, target: "_blank", rel: "noopener noreferrer" }
+    : {}
+
   return (
-    <article
+    <Wrapper
+      {...(wrapperProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       className={cn(
         "group relative flex-shrink-0 w-80",
         "transition-transform duration-500 ease-out",
         "hover:-translate-y-2",
+        signal.url && "cursor-pointer",
       )}
     >
       {/* Card with paper texture effect */}
@@ -203,6 +215,6 @@ function SignalCard({
 
       {/* Shadow/depth layer */}
       <div className="absolute inset-0 -z-10 translate-x-1 translate-y-1 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </article>
+    </Wrapper>
   )
 }

@@ -60,12 +60,12 @@ export function HeroSection() {
         </SplitFlapAudioProvider>
 
         <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
-          Software That Ships
+          Agentic Product Development
         </h2>
 
         <p className="mt-12 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          We build digital products and experiences from the ground up.
-          Clean code, sharp design, real results.
+          We build AI-first products and give teams the methodology to do the same.
+          Agents handle the process overhead. Humans focus on customers and strategy.
         </p>
 
         <div className="mt-16 flex items-center gap-8 flex-wrap">
@@ -77,10 +77,12 @@ export function HeroSection() {
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
-            href="#about"
+            href="https://github.com/richardbowman/agent-pm-playbook"
+            target="_blank"
+            rel="noopener noreferrer"
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
-            About Us
+            Read the Playbook →
           </a>
         </div>
       </div>

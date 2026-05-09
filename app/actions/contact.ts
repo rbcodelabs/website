@@ -27,7 +27,7 @@ export async function sendContactEmail(
   }
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "RB Code Labs <noreply@rbcodelabs.com>",
       to: "rick@rbcodelabs.com",
       replyTo: email,
@@ -45,6 +45,11 @@ export async function sendContactEmail(
         </div>
       `,
     })
+
+    if (error) {
+      console.error("Resend error:", error)
+      return { status: "error", message: "Something went wrong. Please try again or email rick@rbcodelabs.com directly." }
+    }
 
     return { status: "success" }
   } catch (err) {

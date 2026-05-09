@@ -16,37 +16,37 @@ export function PrinciplesSection() {
     {
       number: "01",
       titleParts: [
-        { text: "INTERFACE", highlight: true },
-        { text: " MINIMALISM", highlight: false },
+        { text: "OUTCOMES", highlight: true },
+        { text: " OVER OUTPUT", highlight: false },
       ],
-      description: "Reduce until only the essential remains. Every element earns its place.",
+      description: "Every decision connects to a measurable customer or business outcome — not a feature, not a deadline. Output without outcome is just activity.",
       align: "left",
     },
     {
       number: "02",
       titleParts: [
-        { text: "SYSTEMS", highlight: true },
-        { text: " OVER SCREENS", highlight: false },
+        { text: "CONTINUOUS ", highlight: false },
+        { text: "DISCOVERY", highlight: true },
       ],
-      description: "Design behaviors, not just layouts. Build logic that scales.",
+      description: "Weekly customer touchpoints are the heartbeat. No touchpoints means no discovery means no tree. The work starts with the customer, always.",
       align: "right",
     },
     {
       number: "03",
       titleParts: [
-        { text: "CONTROLLED ", highlight: false },
-        { text: "TENSION", highlight: true },
+        { text: "OST AS ", highlight: false },
+        { text: "OPERATING SYSTEM", highlight: true },
       ],
-      description: "Balance between restraint and expression. Confidence without excess.",
+      description: "One desired outcome. One Opportunity Solution Tree. All opportunities, solutions, and experiments live in it — evidence-backed, customer-voiced.",
       align: "left",
     },
     {
       number: "04",
       titleParts: [
-        { text: "SIGNAL ", highlight: false },
-        { text: "CLARITY", highlight: true },
+        { text: "AGENTS", highlight: true },
+        { text: " HANDLE THE REST", highlight: false },
       ],
-      description: "Communication that cuts through noise. Precision in every interaction.",
+      description: "Synthesis, documentation, triage, status updates — agents do the process overhead. Humans do discovery, judgment, and strategy. That's the only split that makes sense.",
       align: "right",
     },
   ]

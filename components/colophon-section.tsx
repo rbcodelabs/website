@@ -81,12 +81,12 @@ export function ColophonSection() {
 
       {/* Multi-column layout */}
       <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12">
-        {/* Design */}
+        {/* Built by */}
         <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Design</h4>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Built by</h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Signal Studio</li>
-            <li className="font-mono text-xs text-foreground/80">Interface Lab</li>
+            <li className="font-mono text-xs text-foreground/80">Rick Bowman</li>
+            <li className="font-mono text-xs text-foreground/80">RB Code Labs</li>
           </ul>
         </div>
 
@@ -114,8 +114,8 @@ export function ColophonSection() {
         <div className="col-span-1">
           <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Location</h4>
           <ul className="space-y-2">
-            <li className="font-mono text-xs text-foreground/80">Remote</li>
-            <li className="font-mono text-xs text-foreground/80">Everywhere</li>
+            <li className="font-mono text-xs text-foreground/80">Chicago, IL</li>
+            <li className="font-mono text-xs text-foreground/80">Sawyer, MI</li>
           </ul>
         </div>
 
@@ -125,18 +125,20 @@ export function ColophonSection() {
           <ul className="space-y-2">
             <li>
               <a
-                href="mailto:hello@signal.studio"
+                href="mailto:rick@rbcodelabs.com"
                 className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
               >
-                Email
+                rick@rbcodelabs.com
               </a>
             </li>
             <li>
               <a
-                href="#"
+                href="https://github.com/richardbowman"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
               >
-                Twitter/X
+                GitHub
               </a>
             </li>
           </ul>
@@ -144,7 +146,7 @@ export function ColophonSection() {
 
         {/* Year */}
         <div className="col-span-1">
-          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Year</h4>
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Est.</h4>
           <ul className="space-y-2">
             <li className="font-mono text-xs text-foreground/80">2025</li>
             <li className="font-mono text-xs text-foreground/80">Ongoing</li>
@@ -158,9 +160,9 @@ export function ColophonSection() {
         className="mt-24 pt-8 border-t border-border/20 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
       >
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-          © 2025 Signal. All rights reserved.
+          © {new Date().getFullYear()} RB Code Labs. All rights reserved.
         </p>
-        <p className="font-mono text-[10px] text-muted-foreground">Designed with intention. Built with precision.</p>
+        <p className="font-mono text-[10px] text-muted-foreground">Built with the agentic PM approach.</p>
       </div>
     </section>
   )

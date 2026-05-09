@@ -1,26 +1,28 @@
 "use client"
 
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import { HighlightText } from "@/components/highlight-text"
 import { ScrambleTextOnHover } from "@/components/scramble-text"
 import { BitmapChevron } from "@/components/bitmap-chevron"
+import { ContactModal } from "@/components/contact-modal"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const capabilities = [
-  "Web Applications",
-  "Mobile Experiences",
-  "Design Systems",
-  "API Architecture",
-  "Product Strategy",
-  "Cloud Infrastructure",
+  "Agentic PM Methodology",
+  "Opportunity Solution Trees",
+  "AI-First Product Development",
+  "Continuous Discovery Systems",
+  "Full-Stack Engineering",
+  "Team Adoption & Coaching",
 ]
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const itemsRef = useRef<HTMLDivElement[]>([])
+  const [modalOpen, setModalOpen] = useState(false)
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -70,27 +72,44 @@ export function AboutSection() {
         {/* Left - Description */}
         <div className="flex-1 max-w-2xl">
           <p className="text-[clamp(1.25rem,2.5vw,2rem)] leading-relaxed text-foreground/90 font-light">
-            RB Code Labs is a <HighlightText>software studio</HighlightText> focused on
-            building thoughtful digital products. Founded by{" "}
-            <HighlightText>Rick Bowman</HighlightText>, we combine clean engineering with
-            sharp design to ship things that matter.
+            RB Code Labs is <HighlightText>Rick Bowman</HighlightText> — builder, PM, and the
+            person who started coding at 10, wrote a software development book at 19, and has spent
+            30 years being the rare person who can hold both sides.
+          </p>
+
+          <p className="mt-6 font-[family-name:var(--font-bebas)] text-[clamp(2rem,4vw,3.5rem)] leading-[1.0] tracking-tight text-foreground/80">
+            <HighlightText>The product problem</HighlightText>
+            {" "}and the technical solution.
           </p>
 
           <p className="mt-8 font-mono text-sm text-muted-foreground leading-relaxed max-w-lg">
-            From concept to deployment, we handle the full stack. Every line of code is
-            written with intention, every interface designed with purpose.
+            Product and tech felt a little settled for a while — the patterns were known, the
+            frameworks reliable. Then AI changed everything. Not as a tool to go faster, but as
+            a way to automate the process overhead that was never the interesting part anyway.
+            Now the interesting part is all that's left.
           </p>
 
-          <div className="mt-12">
+          <p className="mt-6 font-mono text-sm text-muted-foreground leading-relaxed max-w-lg">
+            The Agentic PM Playbook is the operating system for that way of working — published
+            openly so any PM or team can adopt it.
+          </p>
+
+          <div className="mt-12 flex items-center gap-6 flex-wrap">
             <a
-              href="https://www.rick-bowman.com"
+              href="https://github.com/richardbowman/agent-pm-playbook"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
             >
-              <ScrambleTextOnHover text="Rick's Portfolio" as="span" duration={0.6} />
+              <ScrambleTextOnHover text="Read the Playbook" as="span" duration={0.6} />
               <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
             </a>
+            <button
+              onClick={() => setModalOpen(true)}
+              className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              Bring this to your team →
+            </button>
           </div>
         </div>
 
@@ -119,6 +138,12 @@ export function AboutSection() {
           </div>
         </div>
       </div>
+
+      <ContactModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        subject="Agentic PM adoption"
+      />
     </section>
   )
 }

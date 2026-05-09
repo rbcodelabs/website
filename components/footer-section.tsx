@@ -1,14 +1,20 @@
 "use client"
 
+import { useState } from "react"
 import { ScrambleText } from "@/components/scramble-text"
 import { BitmapChevron } from "@/components/bitmap-chevron"
+import { ContactModal } from "@/components/contact-modal"
 
 const links = [
-  { label: "Portfolio", href: "https://www.rick-bowman.com" },
+  { label: "Agentic PM Playbook", href: "https://github.com/richardbowman/agent-pm-playbook" },
   { label: "HipTrip", href: "https://yourhiptrip.com" },
+  { label: "Golden Wealth", href: "https://live-golden.com" },
+  { label: "GitHub", href: "https://github.com/richardbowman" },
 ]
 
 export function FooterSection() {
+  const [modalOpen, setModalOpen] = useState(false)
+
   return (
     <footer
       id="contact"
@@ -21,8 +27,14 @@ export function FooterSection() {
             <ScrambleText text="RB Code Labs" delayMs={200} duration={0.8} />
           </h2>
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            Building the future, one commit at a time.
+            Agents handle the process. Humans focus on what matters.
           </p>
+          <button
+            onClick={() => setModalOpen(true)}
+            className="mt-4 inline-block font-mono text-xs text-accent hover:text-foreground transition-colors duration-200 uppercase tracking-widest"
+          >
+            rick@rbcodelabs.com →
+          </button>
         </div>
 
         {/* Right - links */}
@@ -54,6 +66,12 @@ export function FooterSection() {
           Sawyer, MI
         </span>
       </div>
+
+      <ContactModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        subject="Agentic PM adoption"
+      />
     </footer>
   )
 }

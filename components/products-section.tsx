@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react"
 import { ScrambleTextOnHover } from "@/components/scramble-text"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { BitmapChevron } from "@/components/bitmap-chevron"
+import { PlaybookVisual, HipTripVisual, GoldenWealthVisual } from "@/components/product-visuals"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -12,12 +13,36 @@ gsap.registerPlugin(ScrollTrigger)
 const products = [
   {
     id: "01",
+    name: "Agentic PM Playbook",
+    description:
+      "An open-source methodology and Claude Code plugin for AI-augmented product management. Built on Continuous Discovery Habits and Opportunity Solution Trees — 18 agent skills across 4 capability layers so teams can automate the process overhead and focus entirely on customers and strategy.",
+    tags: ["Open Source", "Methodology", "Claude Code Plugin"],
+    url: "https://github.com/richardbowman/agent-pm-playbook",
+    cta: "Read the Playbook",
+    status: "Open Source",
+    visual: "playbook",
+  },
+  {
+    id: "02",
     name: "HipTrip",
     description:
-      "A travel planning platform that makes discovering and organizing trips effortless. Built for explorers who want curated experiences without the noise.",
-    tags: ["Travel", "Planning", "Discovery"],
+      "An AI travel planning app for culturally curious travelers who are tired of TripAdvisor's top-10 lists. Generates curated itineraries built on hand-vetted Hip Places — neighborhood restaurants, local trails, and under-the-radar spots. Built end-to-end using the agentic PM approach.",
+    tags: ["Travel", "AI", "Consumer"],
     url: "https://yourhiptrip.com",
+    cta: "Visit HipTrip",
     status: "Live",
+    visual: "hiptrip",
+  },
+  {
+    id: "03",
+    name: "Golden Wealth",
+    description:
+      "An estate planning and family wealth management platform that replaces the shoebox of documents with a secure, collaborative vault. Every feature traces back to a validated customer opportunity in the OST — role-based access, AI document assistant, Plaid integration, and more.",
+    tags: ["FinTech", "Estate Planning", "AI"],
+    url: "https://live-golden.com",
+    cta: "Visit Golden Wealth",
+    status: "Live",
+    visual: "golden-wealth",
   },
 ]
 
@@ -29,7 +54,7 @@ export function ProductsSection() {
     if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card) => {
+      cardsRef.current.filter(Boolean).forEach((card) => {
         if (!card) return
         gsap.fromTo(
           card,
@@ -121,19 +146,17 @@ export function ProductsSection() {
                     rel="noopener noreferrer"
                     className="group/link inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200 self-start"
                   >
-                    <ScrambleTextOnHover text="Visit HipTrip" as="span" duration={0.6} />
+                    <ScrambleTextOnHover text={product.cta} as="span" duration={0.6} />
                     <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover/link:rotate-45" />
                   </a>
                 </div>
               </div>
 
               {/* Right column - visual element */}
-              <div className="relative w-full md:w-80 lg:w-96 min-h-[200px] md:min-h-0 bg-accent/5 border-t md:border-t-0 md:border-l border-border/40 flex items-center justify-center overflow-hidden">
-                <div className="text-center">
-                  <span className="font-[family-name:var(--font-bebas)] text-[clamp(4rem,10vw,8rem)] leading-none text-accent/10 select-none">
-                    HT
-                  </span>
-                </div>
+              <div className="relative w-full md:w-80 lg:w-96 min-h-[280px] md:min-h-0 bg-accent/5 border-t md:border-t-0 md:border-l border-border/40 flex items-center justify-center overflow-hidden p-8">
+                {product.visual === "playbook" && <PlaybookVisual />}
+                {product.visual === "hiptrip" && <HipTripVisual />}
+                {product.visual === "golden-wealth" && <GoldenWealthVisual />}
                 <AnimatedNoise opacity={0.04} />
               </div>
             </div>

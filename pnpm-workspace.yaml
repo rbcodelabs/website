@@ -1,0 +1,5 @@
+# pnpm v11 builds governance
+# sharp ships prebuilt native binaries for all major platforms,
+# so its build scripts don't need to run during install.
+allowBuilds:
+  sharp: false

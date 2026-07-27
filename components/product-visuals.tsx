@@ -187,3 +187,73 @@ export function GoldenWealthVisual() {
     </svg>
   )
 }
+
+export function ClaudeThreadsVisual() {
+  const THREADS = [
+    { x: 20, active: true, lines: [46, 34, 40, 22] },
+    { x: 110, active: false, lines: [30, 40, 18] },
+    { x: 200, active: false, lines: [36, 24, 32, 20] },
+  ]
+
+  return (
+    <svg
+      viewBox="0 0 280 320"
+      className="w-full h-full max-h-64 opacity-60 group-hover:opacity-90 transition-opacity duration-500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Label */}
+      <text x="140" y="28" textAnchor="middle" fontSize="6.5" fill="currentColor" className="text-accent/60 font-mono uppercase tracking-[0.3em]">Parallel Sessions</text>
+
+      {/* Tab bar */}
+      {THREADS.map((t, i) => (
+        <g key={`tab-${i}`}>
+          <rect
+            x={t.x} y="44" width="60" height="18" rx="2"
+            stroke="currentColor"
+            strokeWidth={t.active ? 1.5 : 1}
+            className={t.active ? "text-accent" : "text-accent/30"}
+          />
+          <circle cx={t.x + 10} cy="53" r="2.5" fill="currentColor" className={t.active ? "text-accent" : "text-accent/30"} />
+          <text
+            x={t.x + 34} y="56" textAnchor="middle" fontSize="6" fill="currentColor"
+            className={`font-mono uppercase tracking-widest ${t.active ? "text-accent" : "text-accent/40"}`}
+          >
+            Thread {i + 1}
+          </text>
+        </g>
+      ))}
+
+      {/* Panels with streamed response lines */}
+      {THREADS.map((t, i) => (
+        <g key={`panel-${i}`}>
+          <rect
+            x={t.x} y="72" width="60" height="188" rx="2"
+            stroke="currentColor" strokeWidth="0.75"
+            className={t.active ? "text-accent/40" : "text-border/40"}
+          />
+          {t.lines.map((w, li) => (
+            <line
+              key={li}
+              x1={t.x + 8} y1={92 + li * 16}
+              x2={t.x + 8 + w} y2={92 + li * 16}
+              stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+              className={t.active ? "text-foreground/70" : "text-muted-foreground/30"}
+            />
+          ))}
+          {t.active && (
+            <rect
+              x={t.x + 8} y={92 + t.lines.length * 16 - 4} width="4" height="8"
+              fill="currentColor" className="text-accent"
+            />
+          )}
+        </g>
+      ))}
+
+      {/* Vault connector */}
+      <line x1="20" y1="284" x2="260" y2="284" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 3" className="text-border/40" />
+      <rect x="120" y="292" width="40" height="16" rx="8" stroke="currentColor" strokeWidth="1" className="text-accent/50" />
+      <text x="140" y="303" textAnchor="middle" fontSize="6" fill="currentColor" className="text-accent/70 font-mono uppercase tracking-widest">Vault</text>
+    </svg>
+  )
+}

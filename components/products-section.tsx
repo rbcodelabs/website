@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react"
 import { ScrambleTextOnHover } from "@/components/scramble-text"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { BitmapChevron } from "@/components/bitmap-chevron"
-import { PlaybookVisual, HipTripVisual, GoldenWealthVisual } from "@/components/product-visuals"
+import { PlaybookVisual, HipTripVisual, GoldenWealthVisual, ClaudeThreadsVisual } from "@/components/product-visuals"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -43,6 +43,17 @@ const products = [
     cta: "Visit Golden Wealth",
     status: "Live",
     visual: "golden-wealth",
+  },
+  {
+    id: "04",
+    name: "Claude Threads",
+    description:
+      "A native Obsidian plugin for running multiple Claude Code sessions in parallel — streaming responses, tab management, and deep vault integration.",
+    tags: ["Obsidian", "AI Agents", "Developer Tools"],
+    url: "https://threads.rbcodelabs.com",
+    cta: "Visit Claude Threads",
+    status: "Live",
+    visual: "claude-threads",
   },
 ]
 
@@ -157,6 +168,7 @@ export function ProductsSection() {
                 {product.visual === "playbook" && <PlaybookVisual />}
                 {product.visual === "hiptrip" && <HipTripVisual />}
                 {product.visual === "golden-wealth" && <GoldenWealthVisual />}
+                {product.visual === "claude-threads" && <ClaudeThreadsVisual />}
                 <AnimatedNoise opacity={0.04} />
               </div>
             </div>

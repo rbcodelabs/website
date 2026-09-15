@@ -17,7 +17,7 @@ const products = [
     description:
       "An open-source methodology and Claude Code plugin for AI-augmented product management. Built on Continuous Discovery Habits and Opportunity Solution Trees — 18 agent skills across 4 capability layers so teams can automate the process overhead and focus entirely on customers and strategy.",
     tags: ["Open Source", "Methodology", "Claude Code Plugin"],
-    url: "https://github.com/richardbowman/agent-pm-playbook",
+    url: "https://playbook.rbcodelabs.com/",
     cta: "Read the Playbook",
     status: "Open Source",
     visual: "playbook",

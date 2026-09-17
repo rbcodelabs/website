@@ -12,13 +12,13 @@ const signals = [
     date: "2026.05.09",
     title: "Agentic PM Playbook",
     note: "Published as an open-source Claude Code plugin. Full OST operating system, 18 agent skills across 4 capability layers, and a prompt library for the most common PM agent tasks.",
-    url: "https://github.com/richardbowman/agent-pm-playbook",
+    url: "https://playbook.rbcodelabs.com/",
   },
   {
     date: "2026.05.08",
     title: "Agent Capability Framework",
     note: "Companion doc to the Playbook: a maturity model for building PM agents that can actually run the system. Synthesis → OST Integrity → Experiment Reasoning → Judgment.",
-    url: "https://github.com/richardbowman/agent-pm-playbook",
+    url: "https://playbook.rbcodelabs.com/docs/reference/agent-capability-framework/",
   },
   {
     date: "2026.05.07",

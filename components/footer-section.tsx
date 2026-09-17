@@ -6,7 +6,7 @@ import { BitmapChevron } from "@/components/bitmap-chevron"
 import { ContactModal } from "@/components/contact-modal"
 
 const links = [
-  { label: "Agentic PM Playbook", href: "https://github.com/richardbowman/agent-pm-playbook" },
+  { label: "Agentic PM Playbook", href: "https://playbook.rbcodelabs.com/" },
   { label: "HipTrip", href: "https://yourhiptrip.com" },
   { label: "Golden Wealth", href: "https://live-golden.com" },
   { label: "GitHub", href: "https://github.com/richardbowman" },

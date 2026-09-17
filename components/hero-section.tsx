@@ -77,7 +77,7 @@ export function HeroSection() {
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
-            href="https://github.com/richardbowman/agent-pm-playbook"
+            href="https://playbook.rbcodelabs.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"

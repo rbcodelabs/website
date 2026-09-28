@@ -257,3 +257,71 @@ export function ClaudeThreadsVisual() {
     </svg>
   )
 }
+
+export function GeodeVisual() {
+  // Outer and inner facet rings of the crystal; each inner vertex connects to its outer counterpart
+  const OUTER = [
+    [70, 66], [116, 96], [128, 168], [104, 240], [56, 258], [22, 214], [16, 128],
+  ]
+  const INNER = [
+    [70, 104], [98, 124], [102, 170], [86, 214], [56, 224], [36, 196], [36, 140],
+  ]
+  const toPoints = (pts: number[][]) => pts.map((p) => p.join(",")).join(" ")
+  const NOTE_LINES = [
+    { y: 148, w: 84 },
+    { y: 164, w: 68 },
+    { y: 180, w: 78 },
+    { y: 208, w: 60 },
+    { y: 224, w: 42 },
+  ]
+
+  return (
+    <svg
+      viewBox="0 0 280 320"
+      className="w-full h-full max-h-64 opacity-60 group-hover:opacity-90 transition-opacity duration-500"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Label */}
+      <text x="140" y="28" textAnchor="middle" fontSize="6.5" fill="currentColor" className="text-accent/60 font-mono uppercase tracking-[0.3em]">Local-First</text>
+
+      {/* Geode / crystal */}
+      <polygon points={toPoints(OUTER)} stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" className="text-accent" />
+      <polygon points={toPoints(INNER)} stroke="currentColor" strokeWidth="1" strokeLinejoin="round" fill="currentColor" className="text-accent/50 fill-accent/10" />
+      {OUTER.map((o, i) => (
+        <line
+          key={`facet-${i}`}
+          x1={o[0]} y1={o[1]} x2={INNER[i][0]} y2={INNER[i][1]}
+          stroke="currentColor" strokeWidth="0.75"
+          className="text-border/60"
+        />
+      ))}
+      {/* Inner facet cross-lines */}
+      <line x1="70" y1="104" x2="86" y2="214" stroke="currentColor" strokeWidth="0.5" className="text-accent/30" />
+      <line x1="98" y1="124" x2="56" y2="224" stroke="currentColor" strokeWidth="0.5" className="text-accent/30" />
+      <line x1="36" y1="140" x2="102" y2="170" stroke="currentColor" strokeWidth="0.5" className="text-accent/30" />
+
+      {/* Link from crystal to note */}
+      <line x1="128" y1="168" x2="152" y2="168" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 3" className="text-border/60" />
+
+      {/* Markdown note */}
+      <rect x="152" y="84" width="112" height="168" rx="3" stroke="currentColor" strokeWidth="1" className="text-accent/50" />
+      <text x="164" y="116" fontSize="20" fontWeight="700" fill="currentColor" className="text-accent font-mono">#</text>
+      <line x1="184" y1="110" x2="242" y2="110" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" className="text-foreground/80" />
+      <line x1="164" y1="128" x2="252" y2="128" stroke="currentColor" strokeWidth="0.5" className="text-border/50" />
+      {NOTE_LINES.map((l, i) => (
+        <line
+          key={`note-${i}`}
+          x1="164" y1={l.y} x2={164 + l.w} y2={l.y}
+          stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+          className="text-muted-foreground/40"
+        />
+      ))}
+
+      {/* File pill */}
+      <line x1="20" y1="284" x2="260" y2="284" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 3" className="text-border/40" />
+      <rect x="120" y="292" width="40" height="16" rx="8" stroke="currentColor" strokeWidth="1" className="text-accent/50" />
+      <text x="140" y="303" textAnchor="middle" fontSize="6" fill="currentColor" className="text-accent/70 font-mono uppercase tracking-widest">.md</text>
+    </svg>
+  )
+}

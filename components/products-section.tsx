@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react"
 import { ScrambleTextOnHover } from "@/components/scramble-text"
 import { AnimatedNoise } from "@/components/animated-noise"
 import { BitmapChevron } from "@/components/bitmap-chevron"
-import { PlaybookVisual, HipTripVisual, GoldenWealthVisual, ClaudeThreadsVisual } from "@/components/product-visuals"
+import { PlaybookVisual, HipTripVisual, GoldenWealthVisual, ClaudeThreadsVisual, GeodeVisual } from "@/components/product-visuals"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -54,6 +54,17 @@ const products = [
     cta: "Visit Claude Threads",
     status: "Live",
     visual: "claude-threads",
+  },
+  {
+    id: "05",
+    name: "Geode",
+    description:
+      "An open-source, local-first Markdown knowledge base for macOS, with a managed-vault iOS MVP validated on iPhone. Your notes stay plain Markdown files, on a clean-room, Obsidian-compatible plugin API.",
+    tags: ["Open Source", "Markdown", "Local-First"],
+    url: "https://geode.rbcodelabs.com",
+    cta: "Visit Geode",
+    status: "Open Source",
+    visual: "geode",
   },
 ]
 
@@ -169,6 +180,7 @@ export function ProductsSection() {
                 {product.visual === "hiptrip" && <HipTripVisual />}
                 {product.visual === "golden-wealth" && <GoldenWealthVisual />}
                 {product.visual === "claude-threads" && <ClaudeThreadsVisual />}
+                {product.visual === "geode" && <GeodeVisual />}
                 <AnimatedNoise opacity={0.04} />
               </div>
             </div>
